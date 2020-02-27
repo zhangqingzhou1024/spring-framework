@@ -41,6 +41,7 @@ import org.springframework.lang.Nullable;
 public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
 	/**
+	 * 作用域-单例
 	 * Scope identifier for the standard singleton scope: {@value}.
 	 * <p>Note that extended bean factories might support further scopes.
 	 * @see #setScope
@@ -49,6 +50,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	String SCOPE_SINGLETON = ConfigurableBeanFactory.SCOPE_SINGLETON;
 
 	/**
+	 * 作用域-原型
 	 * Scope identifier for the standard prototype scope: {@value}.
 	 * <p>Note that extended bean factories might support further scopes.
 	 * @see #setScope
@@ -87,6 +89,8 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
 	/**
 	 * Set the name of the parent definition of this bean definition, if any.
+	 * 设置父 Bean，这里涉及到 bean 继承，不是 java 继承。请参见附录的详细介绍
+	 *  一句话就是：继承父 Bean 的配置信息而已
 	 */
 	void setParentName(@Nullable String parentName);
 
